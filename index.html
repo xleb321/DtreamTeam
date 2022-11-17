@@ -8,38 +8,67 @@
     <link rel="stylesheet" href="./components/main.css">
     <link rel="stylesheet" href="./components/header/style.css">
     <link rel="stylesheet" href="./components/body/style.css">
+    <link rel="stylesheet" href="./components/footer/style.css">
+    <link rel="stylesheet" href="./components/body/School/style.css">
 </head>
-<body>
+<body id="body">
     <header>
         <div class="logo">Time Manager</div>
         <div class="btns">
-            <div class="btn-list">Расписание дня</div>
+            <div class="btn-list">Расписание дня</div> <div id="NameAfter"></div>
     </div>
     </header>
 
     <section id="MainSection">
         <div id="MainBody">
-            <div id="Header">СТАРТОВЫЙ ОПРОС</div>
-            <form action="">
-                <div>
-                    <div> Как вас зовут ? </div>
-                    <div> <input style="height: 50px ;" type="text" placeholder="Ваше имя" id="" required></div>
-                </div>
-                <div style="width: 300px ; margin-top: 50px ;">
-                    <div>Кем вы являетесь ?</div>
-                    <div style="margin-top: 10px ;">
-                        <select id="" required>
-                            <option style="color: rgb(200,200,200); height: 30px ; " value="school">Школьник</option>
-                            <option style="color: rgb(200,200,200); height: 30px ; " value="student">Студент</option>
-                            <option style="color: rgb(200,200,200); height: 30px ; " value="worker">Работник</option>
-                        </select>
+            <div id="Header">Начальный опрос</div>
+            <div id="MainBodyCenter">
+                <form action="">
+                    <div>
+                        <div> Как вас зовут ? </div>
+                        <div> <input style="height: 50px ; color: rgb(200,200,200);" type="text" placeholder="Ваше имя" id="name" required onchange="testForSubmit()"></div>
                     </div>
-                </div>
-                <input type="submit">
-        </form>
+                    <div style="width: 300px ; margin-top: 50px ;">
+                        <div>Кем вы являетесь ?</div>
+                        <div style="margin-top: 10px ;">
+                            <select id="typeWork" required onchange="testForSubmit()">
+                                <option value="-">...</option>
+                                <option style="color: rgb(200,200,200); height: 30px ; " value="school">Школьник</option>
+                                <option style="color: rgb(200,200,200); height: 30px ; " value="student">Студент</option>
+                                <option style="color: rgb(200,200,200); height: 30px ; " value="worker">Работник</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="button" id="Accept" onclick="nextPage()" value="Продолжить">
+            </form>
         </div>
     </section>
 
+    <div id="Ask">
+        
+    </div>
 
+    <footer style="padding-top: 10px ;">
+        <div class="footerLeft"> Свободного времени : <div style="margin-left: 10px ;">**:**</div></div>
+        <div>Распределяйте свое время с пользой!</div>
+    </footer>
+
+    <script>
+        function testForSubmit () {
+            if (document.getElementById('name').value !== ''){
+                if(document.getElementById('typeWork').value !== '-'){
+                    document.getElementById('Accept').style.pointerEvents='all';
+                    // console.log('Все введино');
+                } else {
+                    document.getElementById('Accept').style.pointerEvents='none';
+                    // console.log('Чегото не хватает');
+                }
+            } else {
+                document.getElementById('Accept').style.pointerEvents='none';
+                // console.log('Чегото не хватает');
+            }
+        }
+    </script>
+    <script src="./components/main.js"></script>
 </body>
 </html>

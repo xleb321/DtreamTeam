@@ -6,3 +6,19 @@ body{
     color: rgb(200, 200, 200);
     font-family: 'Courier New', Courier, monospace;
 }
+
+#Ask input {
+    cursor: pointer;
+    background-color: rgb(43,29,90); 
+    color: rgb(200,200,200); 
+    font-size: 20px ;
+     width: 80px ;
+    height: 40px ; 
+    border-radius: 20px ; 
+    border: 2px solid rgb(199,184,163);
+    transition: 0.3s;
+}
+
+#Ask input:hover {
+    background-color:rgb(238,73,99) ; 
+}
